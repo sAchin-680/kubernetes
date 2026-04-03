@@ -232,6 +232,7 @@ name | architectures
 ### Feature
 
 - A new gRPC service is added to the Kubelet that provides information about pods running on the node. ([#134627](https://github.com/kubernetes/kubernetes/pull/134627), [@briansonnenberg](https://github.com/briansonnenberg)) [SIG Node and Testing]
+- Add a new `+k8s:maxProperties=<N>` declarative validation tag that enforces a maximum number of entries in a map field, corresponding to the OpenAPI/JSON Schema `maxProperties` keyword. The tag is restricted to map types, uses short-circuit semantics (skips per-entry validation when the map is oversized), and a `MaxProperties` runtime validation function is added to `k8s.io/apimachinery/pkg/api/validate`. `StorageClass.Parameters` is annotated with `+k8s:maxProperties=512` as the first consumer. ([#138112](https://github.com/kubernetes/kubernetes/pull/138112), [@sAchin-680](https://github.com/sAchin-680)) [SIG API Machinery]
 - Add alpha metrics tracking the resource version the cache layer of an informer is at. ([#137419](https://github.com/kubernetes/kubernetes/pull/137419), [@michaelasp](https://github.com/michaelasp)) [SIG API Machinery, Architecture, Instrumentation and Testing]
 - Add the `timezone` field to the cronjob describe output. ([#136663](https://github.com/kubernetes/kubernetes/pull/136663), [@kfess](https://github.com/kfess)) [SIG CLI]
 - Add the ability for statefulset controller to read its own pod and pvc writes ([#137254](https://github.com/kubernetes/kubernetes/pull/137254), [@michaelasp](https://github.com/michaelasp)) [SIG Apps]
